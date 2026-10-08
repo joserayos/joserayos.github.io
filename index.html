@@ -425,10 +425,15 @@ const projects = [
       did:'Estrategia de marca personal y plan de contenido; grabación, edición y publicación; manejo de redes y comunidad; acercamiento a marcas.',
       res:null,
       segments:[
-        {name:'Contenido', desc:'Video de la serie de Gumdo y carrusel educativo de Taekwondo.',
+        {name:'Contenido', desc:'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos, y carrusel de técnica.',
          pieces:[
            {type:'video', label:'Reel', title:'Tráiler · Baldos de Gumdo', src:'img/jose-teng/trailer-gumdo.mp4', ratio:'9/16', sound:true},
-           {type:'carousel', label:'Carrusel', title:'Yop Chagi · la patada lateral', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/yop-chagi-${i}.webp`)}
+           {type:'carousel', label:'Carrusel', title:'Yop Chagi · la patada lateral', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/yop-chagi-${i}.webp`)},
+           {type:'video', label:'Reel', title:'Rompiendo una tabla · Yop Chagi', src:'img/jose-teng/tabla.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Patadas · Dollyo Chagi', src:'img/jose-teng/dollyo-chagi.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Poomsae 1 · Taegeuk Il Jang', src:'img/jose-teng/poomsae-1.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Poomsae 4 · Taegeuk Sa Jang', src:'img/jose-teng/poomsae-4.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Cómo amarrar el cinturón · Gumdo', src:'img/jose-teng/cinturon-gumdo.mp4', ratio:'9/16', sound:true}
          ]},
         {name:'Identidad visual', desc:'Logo, sellos y fondos de la marca personal.',
          pieces:[
@@ -532,7 +537,6 @@ function openCase(p,parent){
       <div class="notes">
         <p><b>Contexto</b><span>${p.context}</span></p>
         <p><b>Qué hice</b><span>${p.did}</span></p>
-        <p><b>Resultado</b><span>${p.res||'<span class="todo">pendiente: datos reales</span>'}</span></p>
         ${p.cta?`<a class="sub-cta" href="${p.cta.href}" target="_blank" rel="noopener">${p.cta.label}</a>`:''}
       </div>
     </div>
@@ -561,7 +565,7 @@ function pieceHTML(x,i){
       <button class="cbtn prev" aria-label="Anterior" disabled>‹</button><button class="cbtn next" aria-label="Siguiente">›</button>
       <div class="cdots">${x.slides.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`;
   } else if(x.type==='video'){
-    inner=`<video src="${x.src}" poster="${x.src.replace('.mp4','-poster.webp')}" autoplay muted loop playsinline preload="metadata"></video>${x.sound?'<button class="sound">♪ Sonido</button>':''}`;
+    inner=`<video src="${x.src}" poster="${x.src.replace('.mp4','-poster.webp')}" muted loop playsinline preload="none"></video>${x.sound?'<button class="sound">♪ Sonido</button>':''}`;
   } else inner=`<img src="${x.src}" alt="${x.label} · ${x.title}" loading="lazy" draggable="false" referrerpolicy="no-referrer">`;
   const rot=((i*37)%7)-3;
   return `<div class="piece real" data-i="${i}" style="rotate:${rot}deg"><span class="kind">${x.label}</span><div class="media${x.contain?' contain':''}" style="width:${w}px;height:${h}px">${inner}<button class="open" aria-label="Abrir en grande">⤢ Abrir</button></div><small style="max-width:${w}px">${x.label} · ${x.title}</small></div>`;
@@ -597,6 +601,9 @@ function drawReal(board,list){
   board.onclick=e=>{if(e.pointerType==='mouse'||e.target.closest('button'))return;const pc=e.target.closest('.piece');if(pc&&!moved&&matchMedia('(hover:none)').matches)openLB(list,+pc.dataset.i,+(pc.dataset.slide||0))};
   board.onwheel=e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&board.scrollWidth>board.clientWidth){const max=board.scrollWidth-board.clientWidth;if((e.deltaY>0&&board.scrollLeft<max-2)||(e.deltaY<0&&board.scrollLeft>2)){e.preventDefault();board.scrollLeft+=e.deltaY}}};
   board.scrollLeft=0;
+  /* los videos solo se reproducen cuando están a la vista (ahorra datos) */
+  const vio=new IntersectionObserver(es=>es.forEach(en=>{const v=en.target;if(en.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{root:board,threshold:.5});
+  board.querySelectorAll('video').forEach(v=>vio.observe(v));
   els.forEach((el,i)=>el.animate([{opacity:0,translate:'40px 0'},{opacity:1,translate:'0 0'}],{duration:450,delay:i*70,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'}));
 }
 /* visor a pantalla completa */

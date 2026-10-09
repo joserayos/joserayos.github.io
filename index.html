@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>José Rayos — Marketing Digital & Performance</title>
+<title>José Rayos — Marketing digital y performance</title>
 <meta name="description" content="Portafolio de José Rayos, especialista en marketing digital en Ciudad de Panamá: estrategia de contenido, SEO y GEO, Meta Ads y marca. Casos: Marketing con Datos, Proyecto Influencers, ZEWS Panamá, Utopía Sonora y Anayansi Burgers.">
 <meta name="author" content="José Rayos">
 <meta name="theme-color" content="#2A1F14">
@@ -16,19 +16,19 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="José Rayos">
-<meta property="og:title" content="José Rayos — Marketing Digital & Performance">
+<meta property="og:title" content="José Rayos — Marketing digital y performance">
 <meta property="og:description" content="Estrategia, contenido, SEO + GEO y Meta Ads en Panamá. Casos reales con piezas, videos y artículos.">
 <meta property="og:url" content="https://joserayos.github.io/">
 <meta property="og:image" content="https://joserayos.github.io/img/og-jose-rayos.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="José Rayos · Marketing digital & performance · Panamá">
+<meta property="og:image:alt" content="José Rayos · Marketing digital y performance · Panamá">
 <meta property="og:locale" content="es_PA">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="profile:first_name" content="José">
 <meta property="profile:last_name" content="Rayos">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="José Rayos — Marketing Digital & Performance">
+<meta name="twitter:title" content="José Rayos — Marketing digital y performance">
 <meta name="twitter:description" content="Estrategia, contenido, SEO + GEO y Meta Ads en Panamá.">
 <meta name="twitter:image" content="https://joserayos.github.io/img/og-jose-rayos.jpg">
 <script type="application/ld+json">
@@ -63,6 +63,8 @@ setTimeout(function(){document.documentElement.classList.remove('intro')},6000)}
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --serif:"Source Serif 4",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  /* margen lateral: 32 px, y crece solo cuando la pantalla supera 1600 px (zoom alejado o monitores grandes) para que el contenido no se disperse */
+  --gutter:max(32px,calc((100vw - 1600px)/2 + 32px));
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:clip}
@@ -91,13 +93,13 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 .cursor.inv span{color:var(--cream)}
 
 /* barra superior */
-.top{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;z-index:50;font:600 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:rgba(42,31,20,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:3px solid var(--orange)}
+.top{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gutter);z-index:50;font:600 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:rgba(42,31,20,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:3px solid var(--orange)}
 .top nav a:hover{color:var(--orange)}
 .top nav{display:flex;gap:24px}
 .clock::before{content:"● ";color:var(--orange)}
 
 /* ===== HERO (fondo oscuro) ===== */
-.hero{min-height:100vh;position:relative;background:var(--ink);color:var(--cream);padding:110px 32px 48px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.hero{min-height:min(100vh,960px);position:relative;background:var(--ink);color:var(--cream);padding:110px var(--gutter) 48px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
 .hero-top{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .hero-top .pill{color:var(--cream-muted);border-color:var(--line-dark)}
 .claim{font-size:clamp(22px,2.2vw,30px);line-height:1.35;color:var(--cream-muted);max-width:560px;margin-top:26px}
@@ -109,10 +111,10 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 .name em{font-style:normal;color:var(--orange)}
 @keyframes up{to{transform:none}}
 .hint{font:400 13px var(--mono);color:var(--ink3);margin-top:22px}
-.hero .dots{top:100px;right:32px}
+.hero .dots{top:100px;right:var(--gutter)}
 
 /* stickers */
-.zone{position:absolute;top:200px;right:40px;bottom:70px;left:52%}
+.zone{position:absolute;top:200px;right:calc(var(--gutter) + 8px);bottom:70px;left:calc(var(--gutter) + (100% - 2 * var(--gutter)) * .52)}
 .sticker{position:absolute;padding:12px 22px;border-radius:999px;font:700 20px var(--display);letter-spacing:-.01em;white-space:nowrap;user-select:none;touch-action:none;cursor:grab;border:2px solid var(--ink);
   transition:transform .25s cubic-bezier(.3,1.5,.5,1);opacity:0;animation:pop .5s cubic-bezier(.3,1.6,.5,1) forwards}
 @keyframes pop{from{opacity:0;scale:.4}to{opacity:1;scale:1}}
@@ -133,7 +135,7 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* ===== PROYECTOS (fondo crema) ===== */
-section{padding:120px 32px}
+section{padding:120px var(--gutter)}
 .head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:14px}
 .head .pill{color:var(--ink3)}
 .track{display:grid;grid-template-columns:110px 1fr 260px 110px;align-items:center;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);transition:padding .35s cubic-bezier(.2,.8,.2,1)}
@@ -205,12 +207,12 @@ section{padding:120px 32px}
 .piece .kind{position:absolute;top:8px;left:8px;z-index:2;background:var(--orange);color:var(--ink);font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
 .piece video,.piece img,.art-media{width:100%;height:100%;object-fit:cover;display:block}
 /* fila horizontal de piezas */
-.board.row{height:auto!important;display:flex;align-items:center;gap:38px;overflow-x:auto;overflow-y:visible;margin:0;padding:64px 32px 56px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--orange) transparent;cursor:grab}
+.board.row{height:auto!important;display:flex;align-items:center;gap:38px;overflow-x:auto;overflow-y:visible;margin:0;padding:64px var(--gutter) 56px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--orange) transparent;cursor:grab}
 .board.row::-webkit-scrollbar{height:6px}.board.row::-webkit-scrollbar-thumb{background:var(--orange);border-radius:3px}
 .board.row.grab{scroll-snap-type:none;user-select:none}
 .board.row .piece.real{position:relative;width:auto;touch-action:pan-x pan-y;cursor:pointer;flex:0 0 auto;scroll-snap-align:center;transition:rotate .3s,transform .3s}
 .board.row .piece.real:hover{rotate:0deg!important;transform:translateY(-6px)}
-.row-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 32px 0}
+.row-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px var(--gutter) 0}
 .row-head .hint{position:static;margin:0}
 .row-nav{display:flex;gap:8px}
 .row-nav button{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);font:700 18px var(--mono);cursor:pointer;transition:.2s}
@@ -247,20 +249,20 @@ section{padding:120px 32px}
 /* ===== HOJA DEL CASO ===== */
 .sheet{position:fixed;inset:0;z-index:60;background:var(--cream);transform:translateY(100%);transition:transform .7s cubic-bezier(.7,0,.2,1);overflow:auto}
 .sheet.open{transform:none}
-.sheet-bar{position:sticky;top:0;z-index:5;height:74px;background:var(--ink);border-bottom:3px solid var(--orange);display:flex;align-items:center;padding:0 32px;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cream-muted)}
+.sheet-bar{position:sticky;top:0;z-index:5;height:74px;background:var(--ink);border-bottom:3px solid var(--orange);display:flex;align-items:center;padding:0 var(--gutter);font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cream-muted)}
 .sheet-bar b{color:var(--orange);font-weight:600;margin-right:8px}
-.sheet-head{background:var(--ink);color:var(--cream);padding:78px 32px 50px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;position:relative}
+.sheet-head{background:var(--ink);color:var(--cream);padding:78px var(--gutter) 50px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;position:relative}
 .sheet-head h2{font-size:clamp(56px,9vw,140px);line-height:.86}
-.sheet-head .dots{top:14px;left:32px;right:auto;height:42px;--dot:#4E3E28}
+.sheet-head .dots{top:14px;left:var(--gutter);right:auto;height:42px;--dot:#4E3E28}
 .notes p{margin-bottom:18px;color:var(--cream-muted);font-size:18px}
 .notes p span{color:var(--cream)}
 .notes b{display:block;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:2px}
 .todo{background:var(--orange-dark);color:var(--cream);padding:0 6px}
-.close{position:fixed;top:16px;right:32px;z-index:61;background:var(--orange);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:10px 20px;font:600 13px var(--mono);letter-spacing:.08em;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s .4s}
+.close{position:fixed;top:16px;right:var(--gutter);z-index:61;background:var(--orange);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:10px 20px;font:600 13px var(--mono);letter-spacing:.08em;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s .4s}
 .sheet.open + .close{opacity:1;pointer-events:auto}
-.board{position:relative;height:680px;margin:0 32px}
+.board{position:relative;height:680px;margin:0 var(--gutter)}
 .board .hint{position:absolute;top:24px;left:0;color:var(--ink3)}
-.segs{display:flex;flex-wrap:wrap;gap:10px;padding:34px 32px 0;align-items:center}
+.segs{display:flex;flex-wrap:wrap;gap:10px;padding:34px var(--gutter) 0;align-items:center}
 .segs .eyebrow{margin-right:6px}
 .seg{font:600 14px var(--mono);letter-spacing:.06em;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;transition:.2s}
 .seg:hover{background:var(--orange-soft)}
@@ -278,13 +280,13 @@ section{padding:120px 32px}
 .about h2 em{font-style:normal;color:var(--orange)}
 .about p{font-size:clamp(19px,1.7vw,23px);color:var(--cream-muted);margin-bottom:20px}
 .about p b{color:var(--cream);font-weight:600}
-.about .dots{bottom:40px;left:32px;--dot:#4E3E28}
+.about .dots{bottom:40px;left:var(--gutter);--dot:#4E3E28}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .chips span{border:1px solid var(--line-dark);color:var(--cream);border-radius:999px;padding:6px 15px;font:500 14px var(--mono);transition:.2s}
 .chips span:hover{background:var(--orange);border-color:var(--orange);color:var(--ink);transform:rotate(-3deg)}
 
 /* ===== CONTACTO (fondo naranja) ===== */
-.contact{background:var(--orange);color:var(--ink);text-align:center;padding:140px 32px;position:relative;overflow:hidden}
+.contact{background:var(--orange);color:var(--ink);text-align:center;padding:140px var(--gutter);position:relative;overflow:hidden}
 .contact .eyebrow{color:var(--ink)}
 .contact h2{font-size:clamp(64px,13vw,210px);line-height:.85;margin-top:18px}
 .contact h2 em{font-style:normal;color:var(--cream)}
@@ -298,8 +300,8 @@ section{padding:120px 32px}
 .links{margin-top:42px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
 .links a{border:2px solid var(--ink);border-radius:999px;padding:10px 22px;font:600 14px var(--mono);letter-spacing:.08em;text-transform:uppercase;transition:.2s}
 .links a:hover{background:var(--ink);color:var(--cream)}
-.contact .dots{top:40px;left:32px}
-footer{background:var(--ink);color:var(--ink3);display:flex;justify-content:space-between;padding:22px 112px 22px 32px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.contact .dots{top:40px;left:var(--gutter)}
+footer{background:var(--ink);color:var(--ink3);display:flex;justify-content:space-between;padding:22px calc(var(--gutter) + 80px) 22px var(--gutter);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
 
 .reveal{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -348,8 +350,8 @@ html.intro .curtain,.curtain.open{display:block}
 html.intro .name .line>span,html.intro .sticker{animation-play-state:paused}
 .cur-p{position:absolute;left:0;right:0;height:50.2%;background:var(--orange);transition:transform .9s cubic-bezier(.76,0,.24,1)}
 .cur-t{top:0}.cur-b{bottom:0}
-.cur-t .dots{top:28px;right:32px;--dot:var(--orange-dark)}
-.cur-b .dots{bottom:28px;left:32px;--dot:var(--orange-dark)}
+.cur-t .dots{top:28px;right:var(--gutter);--dot:var(--orange-dark)}
+.cur-b .dots{bottom:28px;left:var(--gutter);--dot:var(--orange-dark)}
 .curtain.open .cur-t{transform:translateY(-101%)}
 .curtain.open .cur-b{transform:translateY(101%)}
 .cur-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;color:var(--ink);text-align:center;padding:0 20px;transition:opacity .3s}
@@ -476,8 +478,8 @@ html.intro .name .line>span,html.intro .sticker{animation-play-state:paused}
 <section class="hero" id="inicio">
   <div class="dots"></div>
   <div>
-    <div class="hero-top"><span class="eyebrow">Marketing digital &amp; performance · Panamá</span><span class="pill" data-i18n="pill">N.º 001 · Portafolio</span></div>
-    <p class="claim" data-i18n="claim"><b>Estrategia, contenido y pauta digital</b> con datos que se pueden comprobar.</p>
+    <div class="hero-top"><span class="eyebrow">Marketing digital y performance · Panamá</span><span class="pill" data-i18n="pill">N.º 001 · Portafolio</span></div>
+    <p class="claim" data-i18n="claim"><b>Estrategia, contenido y pauta digital</b> con datos verificables.</p>
     <div class="cta-row"><a class="btn solid" href="#proyectos" data-i18n="cta1">Ver proyectos ↓</a><a class="btn ghost cv-link" href="cv/CV_Jose_Rayos_ES.pdf" target="_blank" rel="noopener" download data-i18n="cta2">Descargar CV</a></div>
   </div>
   <div>
@@ -521,10 +523,10 @@ html.intro .name .line>span,html.intro .sticker{animation-play-state:paused}
   <div class="reveal">
     <p data-i18n="p1">José Rayos viene de la venta directa y la atención al cliente, donde aprendió que <b>el marketing se mide en resultados</b>: pedidos, entradas vendidas, gente que llega.</p>
     <p data-i18n="p2">En 2021 cofundó Anayansi Burgers y fundó Utopía Sonora, una agencia de la escena electrónica en Panamá con más de 150 eventos apoyados desde marketing. Después llevó esa experiencia al marketing digital para empresas: <b>SEO, GEO, Meta Ads y contenido</b> para sectores como salud privada, educación, inmobiliario, firmas legales, turismo, hotelería, construcción y exportadores, entre otros.</p>
-    <p data-i18n="p3">Trabaja a diario con <b>inteligencia artificial</b>, principalmente con <b>Claude</b>, para investigar, redactar, diseñar piezas y automatizar procesos. Combina <b>Claude Code y Python</b> (vibecoding) para crear sus propias herramientas: un diagnóstico técnico de sitios web, automatizaciones de correo para prospección y este mismo portafolio.</p>
+    <p data-i18n="p3">Trabaja a diario con <b>inteligencia artificial</b>, principalmente con <b>Claude</b>, para investigar, redactar, diseñar piezas y automatizar procesos. Combina <b>Claude Code y Python</b> (desarrollo asistido por IA) para crear sus propias herramientas: un diagnóstico técnico de sitios web, automatizaciones de correo para prospección y este mismo portafolio.</p>
     <p data-i18n="p4">Hoy publica <b>Marketing con Datos en Panamá</b>, un newsletter semanal en LinkedIn sobre marketing digital aplicado con cifras verificables.</p>
     <div class="chips">
-      <span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>GEO</span><span>Google Business Profile</span><span>Metricool</span><span>Canva</span><span>Notion</span><span>CRM</span><span>Python</span><span>Claude</span><span>Claude Code</span><span>Vibecoding</span><span data-i18n="chipIA">IA generativa</span>
+      <span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>GEO</span><span>Google Business Profile</span><span>Metricool</span><span>Canva</span><span>Notion</span><span>CRM</span><span>Python</span><span>Claude</span><span>Claude Code</span><span data-i18n="chipDev">Desarrollo con IA</span><span data-i18n="chipIA">IA generativa</span>
     </div>
   </div>
 </section>
@@ -572,9 +574,9 @@ const EN_UI={
   count:'05 projects', pill:'No. 001 · Portfolio', perfilT:'Profile<em>.</em>',
   p1:'José Rayos comes from direct sales and customer service, where he learned that <b>marketing is measured in results</b>: orders, tickets sold, people walking through the door.',
   p2:'In 2021 he co-founded Anayansi Burgers and founded Utopía Sonora, an agency in Panama’s electronic music scene with more than 150 events supported through marketing. He then brought that experience to digital marketing for companies: <b>SEO, GEO, Meta Ads and content</b> for sectors such as private healthcare, education, real estate, law firms, tourism, hospitality, construction and exporters, among others.',
-  p3:'He works with <b>artificial intelligence</b> every day, mainly <b>Claude</b>, to research, write, design pieces and automate processes. He combines <b>Claude Code and Python</b> (vibecoding) to build his own tools: a technical website audit, email automations for prospecting, and this very portfolio.',
+  p3:'He works with <b>artificial intelligence</b> every day, mainly <b>Claude</b>, to research, write, design pieces and automate processes. He combines <b>Claude Code and Python</b> (AI-assisted development) to build his own tools: a technical website audit, email automations for prospecting, and this very portfolio.',
   p4:'He currently publishes <b>Marketing con Datos en Panamá</b>, a weekly LinkedIn newsletter (in Spanish) on applied digital marketing backed by verifiable figures.',
-  chipIA:'Generative AI', talk:'Let’s talk<em>.</em>', copied:'COPIED', write:'✉ Write an email',
+  chipIA:'Generative AI', chipDev:'AI-assisted development', talk:'Let’s talk<em>.</em>', copied:'COPIED', write:'✉ Write an email',
   foot1:'José Rayos · Digital marketing · Panama City', upd:'Updated: Oct 2026', close:'CLOSE ✕'
 };
 /* textos de proyectos, piezas y controles (español → inglés) */
@@ -603,15 +605,15 @@ const EN={
   'Próximo proyecto':'Next project','Espacio para nuevos creadores':'Room for new creators','Pronto':'Soon',
   'SEO, GEO y contenido para empresas':'SEO, GEO and content for businesses','Asistente de mercadeo':'Marketing assistant',
   'Agencia de marketing digital, SEO, automatizaciones y transformación digital que atiende distintas industrias a nivel empresarial.':'Digital marketing agency covering SEO, automation and digital transformation for companies across industries.',
-  'Desarrolló una librería editorial con enfoque SEO + GEO, contenido semanal para redes, el perfil de Google Business, una herramienta de diagnóstico digital con Claude Code en Python y una base de prospección de cientos de empresas.':'He built an SEO + GEO editorial library, weekly social media content, the Google Business profile, a digital audit tool built with Claude Code in Python, and a prospecting database of hundreds of companies.',
+  'Desarrolló una librería editorial con enfoque SEO + GEO, contenido semanal para redes, el perfil de Google Business, una herramienta de diagnóstico digital con Claude Code en Python y una base de prospección de más de 700 empresas.':'He built an SEO + GEO editorial library, weekly social media content, the Google Business profile, a digital audit tool built with Claude Code in Python, and a prospecting database of more than 700 companies.',
   'piezas de contenido corporativo':'corporate content pieces','empresas en la base de prospección':'companies in the prospecting database','propuestas internas de mejora':'internal improvement proposals',
   'Agencia y eventos de música electrónica':'Electronic music agency and events','Fundador · marketing y producción':'Founder · marketing and production',
-  'Agencia de la escena electrónica en Panamá: marketing, redes, revista digital, venta de tickets con promotores y booking.':'Agency in Panama’s electronic music scene: marketing, social media, a digital magazine, ticket sales through promoters, and booking.',
-  'Fundó la agencia y dirigió el marketing. Campañas para @dialectic.live, @utopiasonora y @colorsproductions para generar público e interacción entre páginas, la sección editorial "Artista de la Semana", entre muchas otras acciones de marketing y producción.':'He founded the agency and led its marketing: campaigns for @dialectic.live, @utopiasonora and @colorsproductions to build audiences and cross-page engagement, the "Artist of the Week" editorial section, and many other marketing and production initiatives.',
+  'Agencia de la escena electrónica en Panamá: marketing, redes, revista digital, venta de entradas junto a promotores y booking.':'Agency in Panama’s electronic music scene: marketing, social media, a digital magazine, ticket sales alongside promoters, and booking.',
+  'Fundó la agencia y lideró su marketing: campañas para Dialectic, Utopía Sonora y Colors Productions, colaboraciones entre cuentas para ampliar el público y la sección editorial «Artista de la Semana», además de la producción de eventos.':'He founded the agency and led its marketing: campaigns for Dialectic, Utopía Sonora and Colors Productions, cross-account collaborations to grow the audience, the “Artist of the Week” editorial section, and event production.',
   'eventos propios producidos':'own events produced','eventos apoyados desde marketing':'events supported through marketing','4 años':'4 years','al frente del proyecto':'leading the project',
   'Marca gastronómica desde cero':'A food brand built from scratch','Cofundador · mercadeo':'Co-founder · marketing',
   'Hamburguesería artesanal cofundada en Panamá.':'Artisanal burger restaurant co-founded in Panama.',
-  'Participó desde la elaboración de recetas y platillos, hasta tareas administrativas, guiando en su totalidad la parte de marketing del negocio.':'He took part in everything from developing recipes and dishes to administrative tasks, and led the business’s marketing end to end.',
+  'Cofundó la marca y participó desde la elaboración de recetas y platillos hasta la administración. Estuvo a cargo de todo el marketing del negocio.':'He co-founded the brand and took part in everything from developing recipes and dishes to administration. He was in charge of all of the business’s marketing.',
   /* piezas */
   'Carrusel':'Carousel','Fondo':'Background','Evento':'Event','Flyer animado':'Animated flyer','Foto':'Photo','Portada':'Cover',
   'Tráiler · Baldos de Gumdo':'Trailer · Gumdo forms','Yop Chagi · la patada lateral':'Yop Chagi · the side kick','Rompiendo una tabla · Yop Chagi':'Breaking a board · Yop Chagi',
@@ -638,12 +640,12 @@ const CV={es:'cv/CV_Jose_Rayos_ES.pdf',en:'cv/Resume_Jose_Rayos_EN.pdf'};
 let CUR=null;
 function applyLang(){
   document.documentElement.lang=LANG;
-  document.title=LANG==='en'?'José Rayos — Digital Marketing & Performance':'José Rayos — Marketing Digital & Performance';
+  document.title=LANG==='en'?'José Rayos — Digital Marketing & Performance':'José Rayos — Marketing digital y performance';
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;el.innerHTML=LANG==='en'?(EN_UI[k]??ES_UI[k]):ES_UI[k]});
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));
   document.querySelectorAll('.cv-link').forEach(a=>a.href=CV[LANG]);
   document.getElementById('mailto').href=document.getElementById('fabMail').href='mailto:joserayos15@gmail.com?subject='+encodeURIComponent(LANG==='en'?'Contact from your portfolio':'Contacto desde el portafolio');
-  document.querySelector('.hero-top .eyebrow').innerHTML=LANG==='en'?'Digital marketing &amp; performance · Panama':'Marketing digital &amp; performance · Panamá';
+  document.querySelector('.hero-top .eyebrow').innerHTML=LANG==='en'?'Digital marketing &amp; performance · Panama':'Marketing digital y performance · Panamá';
 }
 
 /* ===== Proyectos: edita aquí textos y piezas ===== */
@@ -684,7 +686,7 @@ const projects = [
    stats:[[String(ARTICLES.length),'artículos publicados']],
    context:'Newsletter semanal en LinkedIn sobre marketing digital, publicidad y búsqueda con IA, con datos verificables y aplicados a empresas en Panamá.',
    did:'Define la línea editorial y el calendario, investiga y redacta cada artículo con fuentes verificables, y diseña las portadas y carruseles con un manual de línea gráfica propio. Cada artículo sale acompañado de un post de apoyo.',
-   res:'7 artículos publicados desde septiembre de 2026. El newsletter se lanzó en octubre de 2026.',
+   res:'Serie iniciada en septiembre de 2026; newsletter desde octubre de 2026.',
    cta:{label:'Suscribirse en LinkedIn ↗', href:'https://www.linkedin.com/newsletters/7513572283647729664/'},
    segments:[
      {name:'Artículos', type:'articles', desc:'Resumen de cada artículo. El texto completo está en LinkedIn.'},
@@ -722,7 +724,7 @@ const projects = [
   {id:'zews', name:'ZEWS Panamá', what:'SEO, GEO y contenido para empresas', yr:'2026', style:'art-or', role:'Asistente de mercadeo',
    stats:[['+80','piezas de contenido corporativo'],['+700','empresas en la base de prospección'],['+10','propuestas internas de mejora']],
    context:'Agencia de marketing digital, SEO, automatizaciones y transformación digital que atiende distintas industrias a nivel empresarial.',
-   did:'Desarrolló una librería editorial con enfoque SEO + GEO, contenido semanal para redes, el perfil de Google Business, una herramienta de diagnóstico digital con Claude Code en Python y una base de prospección de cientos de empresas.',
+   did:'Desarrolló una librería editorial con enfoque SEO + GEO, contenido semanal para redes, el perfil de Google Business, una herramienta de diagnóstico digital con Claude Code en Python y una base de prospección de más de 700 empresas.',
    res:null,
    pieces:[
      {type:'carousel', label:'Carrusel', title:'Autodiagnóstico digital', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/zews/autodiagnostico-${i}.webp`)},
@@ -732,9 +734,9 @@ const projects = [
    ]},
   {id:'utopia', name:'Utopía Sonora', what:'Agencia y eventos de música electrónica', yr:'2021–2025', style:'art-dark', role:'Fundador · marketing y producción',
    stats:[['+25','eventos propios producidos'],['+150','eventos apoyados desde marketing'],['4 años','al frente del proyecto']],
-   context:'Agencia de la escena electrónica en Panamá: marketing, redes, revista digital, venta de tickets con promotores y booking.',
-   did:'Fundó la agencia y dirigió el marketing. Campañas para @dialectic.live, @utopiasonora y @colorsproductions para generar público e interacción entre páginas, la sección editorial "Artista de la Semana", entre muchas otras acciones de marketing y producción.',
-   res:'Cerca de 25 eventos propios organizados y más de 150 apoyados desde marketing.',
+   context:'Agencia de la escena electrónica en Panamá: marketing, redes, revista digital, venta de entradas junto a promotores y booking.',
+   did:'Fundó la agencia y lideró su marketing: campañas para Dialectic, Utopía Sonora y Colors Productions, colaboraciones entre cuentas para ampliar el público y la sección editorial «Artista de la Semana», además de la producción de eventos.',
+   res:'Más de 25 eventos propios organizados y más de 150 apoyados desde marketing.',
    pieces:[
      {type:'video', label:'Evento', title:'Fiesta en vivo', src:'img/utopia/evento-en-vivo.mp4', ratio:'9/16', sound:true},
      {type:'image', label:'Flyer', title:'Dialectic · Anniversary Bash', src:'img/utopia/flyer-dialectic.webp', ratio:'9/16'},
@@ -744,7 +746,7 @@ const projects = [
    ]},
   {id:'anayansi', name:'Anayansi Burgers', what:'Marca gastronómica desde cero', yr:'2021–2023', style:'art-cr', role:'Cofundador · mercadeo',
    context:'Hamburguesería artesanal cofundada en Panamá.',
-   did:'Participó desde la elaboración de recetas y platillos, hasta tareas administrativas, guiando en su totalidad la parte de marketing del negocio.',
+   did:'Cofundó la marca y participó desde la elaboración de recetas y platillos hasta la administración. Estuvo a cargo de todo el marketing del negocio.',
    res:null,
    pieces:[
      {type:'carousel', label:'Carrusel', title:'Serie artística', ratio:'4/5', slides:[1,2,3,4].map(i=>`img/anayansi/serie-artistica-${i}.webp`)},

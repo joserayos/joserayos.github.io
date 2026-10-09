@@ -6,7 +6,7 @@ Sitio: https://joserayos.github.io (inglés: https://joserayos.github.io/?lang=e
 ## Cómo está armado
 
 - `index.html`: toda la página (estilos, contenido y código en un solo archivo).
-- `img/`: piezas por proyecto (`zews/`, `utopia/`, `anayansi/`, `jose-teng/`), portadas de artículos (`articulos/`), retrato, imagen para compartir (`og-jose-rayos.jpg`) e íconos.
+- `img/`: piezas por proyecto (`zews/`, `utopia/`, `anayansi/`, `jose-teng/`), portadas de artículos (`articulos/`), retrato, imagen para compartir (`og-jose-rayos-v2.jpg`) e íconos.
 - `cv/`: CV en español e inglés (PDF).
 - `sitemap.xml` y `robots.txt`: para Google Search Console.
 

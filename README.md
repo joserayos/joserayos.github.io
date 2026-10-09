@@ -18,6 +18,11 @@ Sitio: https://joserayos.github.io (inglés: https://joserayos.github.io/?lang=e
 - **Inglés:** los textos fijos están en `EN_UI` (por clave `data-i18n`) y los de proyectos y piezas en `EN` (texto en español → texto en inglés). Si cambias un texto en español, actualiza también su clave en `EN`.
 - **CV:** reemplaza los PDF en `cv/` con el mismo nombre.
 
+## Telón de entrada y retrato flotante
+
+- **Telón:** paneles naranjas que se abren y dejan ver el inicio (marcado en `.curtain`, lógica al final del `<script>`). Se muestra una vez por sesión; con `?intro` en la dirección se fuerza para verlo de nuevo. No aparece con "reducir movimiento" ni cuando la dirección trae un ancla (`#perfil`). Se salta con un clic, un toque o `Esc`.
+- **Retrato flotante (`.fab`):** círculo con el retrato fijo abajo a la derecha. Aparece al bajar medio pantallazo, se achica mientras se baja, muestra la sección actual y abre un menú con correo, WhatsApp y CV. Los textos están en `EN_UI` (`skipIntro`, `fabLabel`) y en `FAB_T` (burbuja).
+
 ## Analítica
 
 GoatCounter (sin cookies). Ya está instalado con el código `joserayos`; se activa al crear la cuenta en goatcounter.com con ese código. Registra visitas, casos abiertos, descargas de CV, clics en WhatsApp/correo y cambio de idioma.

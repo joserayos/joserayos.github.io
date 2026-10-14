@@ -620,7 +620,7 @@ const EN={
   'Tráiler · Baldos de Gumdo':'Trailer · Gumdo forms','Yop Chagi · la patada lateral':'Yop Chagi · the side kick','Rompiendo una tabla · Yop Chagi':'Breaking a board · Yop Chagi',
   'Patadas · Dollyo Chagi':'Kicks · Dollyo Chagi','Cómo amarrar el cinturón · Gumdo':'How to tie the belt · Gumdo',
   'Logo con tipografía · rojo y azul':'Logo with typography · red and blue','Sello en rojo':'Seal in red','Sello en azul':'Seal in blue','Fondo para TV':'TV background','Textura azul':'Blue texture',
-  'Autodiagnóstico digital':'Digital self-assessment','IA y datos para decidir':'AI and data for decisions','Su ficha de Google habla por usted':'Your Google profile speaks for you','Tarjeta para reseñas':'Review card',
+  'Autodiagnóstico digital':'Digital self-assessment','Búsqueda con IA: una sola respuesta':'AI search: a single answer','Tráfico orgánico y tráfico pagado':'Organic and paid traffic','El aviso «No es seguro»':'The “Not secure” warning','Palabras clave e intención de búsqueda':'Keywords and search intent','IA y datos para decidir':'AI and data for decisions','Su ficha de Google habla por usted':'Your Google profile speaks for you','Tarjeta para reseñas':'Review card',
   'Fiesta en vivo':'Live party','Biografía de artista · Kofla':'Artist bio · Kofla','Ambiente de evento':'Event atmosphere',
   'Serie artística':'Art series','Hamburguesas artesanales':'Artisanal burgers','Producto':'Product','Miércoles de Siu Mai':'Siu Mai Wednesdays','Menú digital':'Digital menu',
   /* artículos y línea gráfica */
@@ -736,6 +736,10 @@ const projects = [
    did:'Desarrolló una librería editorial con enfoque SEO + GEO, contenido semanal para redes, el perfil de Google Business, una herramienta de diagnóstico digital con Claude Code en Python y una base de prospección de más de 700 empresas.',
    res:null,
    pieces:[
+     {type:'video', label:'Reel', title:'Búsqueda con IA: una sola respuesta', src:'img/zews/video-busqueda-ia.mp4', ratio:'9/16', sound:true},
+     {type:'carousel', label:'Carrusel', title:'Tráfico orgánico y tráfico pagado', ratio:'4/5', slides:[1,2,3,4,5,6].map(i=>`img/zews/trafico-organico-pagado-${i}.webp`)},
+     {type:'carousel', label:'Carrusel', title:'El aviso «No es seguro»', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/zews/no-es-seguro-${i}.webp`)},
+     {type:'carousel', label:'Carrusel', title:'Palabras clave e intención de búsqueda', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/zews/palabras-clave-${i}.webp`)},
      {type:'carousel', label:'Carrusel', title:'Autodiagnóstico digital', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/zews/autodiagnostico-${i}.webp`)},
      {type:'video', label:'Reel', title:'IA y datos para decidir', src:'img/zews/video-ia-datos.mp4', ratio:'9/16', sound:true},
      {type:'carousel', label:'Carrusel', title:'Su ficha de Google habla por usted', ratio:'4/5', slides:[1,2,3,4,5,6].map(i=>`img/zews/ficha-google-${i}.webp`)},

@@ -163,7 +163,8 @@ section{padding:120px var(--gutter)}
 .acard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .2s;cursor:pointer}
 .acard:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--orange)}
 .acard .cover{aspect-ratio:1120/630;background:var(--ink);overflow:hidden;position:relative}
-.acard .cover img{width:100%;height:100%;object-fit:cover;display:block}
+.acard .cover img,.acard .cover video{width:100%;height:100%;object-fit:cover;display:block}
+.acard .cover.v video{object-fit:contain}
 .acard .cover .art{position:absolute;inset:0}
 .acard .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
 .acard .meta{display:flex;justify-content:space-between;gap:10px;font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
@@ -623,7 +624,7 @@ const EN={
   'Fiesta en vivo':'Live party','Biografía de artista · Kofla':'Artist bio · Kofla','Ambiente de evento':'Event atmosphere',
   'Serie artística':'Art series','Hamburguesas artesanales':'Artisanal burgers','Producto':'Product','Miércoles de Siu Mai':'Siu Mai Wednesdays','Menú digital':'Digital menu',
   /* artículos y línea gráfica */
-  'Publicidad':'Advertising','Búsqueda y GEO':'Search & GEO','Prospección':'Prospecting',
+  'Publicidad':'Advertising','Automatización':'Automation','Búsqueda y GEO':'Search & GEO','Prospección':'Prospecting',
   'Paleta':'Palette','Tipografía':'Typography','Reglas':'Rules','Recursos':'Resources','Naranja':'Orange','Crema':'Cream','Naranja oscuro':'Dark orange',
   'Titulares · 700–800':'Headlines · 700–800','Etiquetas, cifras y fuentes':'Labels, figures and sources','Bajadas y cuerpo de texto':'Subheads and body text',
   'Editorial, no publicitario: informa, no vende.':'Editorial, not promotional: it informs, it doesn’t sell.','Todo dato es verdadero y lleva su fuente visible.':'Every figure is true and shows its source.',
@@ -651,6 +652,14 @@ function applyLang(){
 /* ===== Proyectos: edita aquí textos y piezas ===== */
 /* ===== Artículos de LinkedIn (más reciente primero) ===== */
 const ARTICLES=[
+  {title:'Inteligencia artificial en marketing: qué automatizar y qué no', date:'13 oct 2026', tag:'Automatización',
+   summary:'La inteligencia artificial en marketing conviene aplicarla a tareas que se repiten igual, se pueden verificar y cuyo error sale barato. Lo que exige criterio de marca, decisión de inversión o manejo de datos de clientes se asiste con IA, pero no se delega.',
+   url:'https://www.linkedin.com/pulse/inteligencia-artificial-en-marketing-qu%C3%A9-automatizar-y-jose-rayos-ywuse',
+   cover:'img/articulos/09-ia-marketing-poster.webp', video:'img/articulos/09-ia-marketing.mp4', ratio:'16/9'},
+  {title:'Comunicación del negocio tras un sismo en Panamá: cómo avisar horarios, citas y reservas', date:'10 oct 2026', tag:'Panamá',
+   summary:'Tras el sismo del 9 de octubre de 2026, el cliente quiere saber si el negocio abre, qué pasa con su cita o reserva y cuándo vuelve a la normalidad. En Panamá se resuelve con un canal oficial único, el horario actualizado en Google y un mensaje claro por WhatsApp.',
+   url:'https://www.linkedin.com/pulse/comunicaci%C3%B3n-del-negocio-tras-un-sismo-en-panam%C3%A1-c%C3%B3mo-jose-rayos-9jlie',
+   cover:'img/articulos/08-comunicacion-sismo-poster.webp', video:'img/articulos/08-comunicacion-sismo.mp4', ratio:'9/16'},
   {title:'Meta Ads para inmobiliarias en Panamá: la regla que cambia todo si tu comprador vive en EE. UU.', date:'7 oct 2026', tag:'Publicidad',
    summary:'En el primer trimestre de 2026, los compradores extranjeros adquirieron 205 millones de dólares en vivienda en Panamá y llegaron al 57 % del segmento residencial de más de 120.000 dólares, el nivel más alto de la serie de Indesa Analytics.',
    url:'https://www.linkedin.com/pulse/meta-ads-para-inmobiliarias-en-panam%C3%A1-la-regla-que-cambia-jose-rayos-pmz7e',
@@ -691,7 +700,7 @@ const projects = [
    segments:[
      {name:'Artículos', type:'articles', desc:'Resumen de cada artículo. El texto completo está en LinkedIn.'},
      {name:'Portadas', desc:'Portadas de los artículos, hechas con la línea gráfica propia.',
-      pieces:ARTICLES.map(a=>['Portada',a.title,'art-dark',a.cover,'wide'])},
+      pieces:ARTICLES.map(a=>a.video?{type:'video',label:'Portada',title:a.title,src:a.video,ratio:a.ratio,sound:true}:['Portada',a.title,'art-dark',a.cover,'wide'])},
      {name:'Línea gráfica', type:'brand', desc:'El manual que mantiene todas las piezas consistentes.'}
    ]},
   {id:'influencers', name:'Proyecto Influencers', what:'Marcas personales de creadores de contenido', yr:'2026', style:'art-or',
@@ -914,9 +923,13 @@ let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const 
 function drawArticles(board){
   board.classList.remove('row');board.parentNode.querySelectorAll('.row-head').forEach(e=>e.remove());board.classList.add('flow');board.style.height='';
   board.innerHTML=`<div class="arts">${ARTICLES.map(a=>`<a class="acard" href="${a.url}" target="_blank" rel="noopener">
-    <div class="cover"><img src="${a.cover}" alt="Portada: ${a.title}" loading="lazy" referrerpolicy="no-referrer"></div>
+    <div class="cover${a.video&&a.ratio==='9/16'?' v':''}">${a.video?`<video src="${a.video}" poster="${a.cover}" muted loop playsinline preload="none" aria-label="Portada en video: ${a.title}"></video><button class="sound" type="button">${t('♪ Sonido')}</button>`:`<img src="${a.cover}" alt="Portada: ${a.title}" loading="lazy" referrerpolicy="no-referrer">`}</div>
     <div class="body"><div class="meta"><span class="tag">${t(a.tag)}</span><span>${LANG==='en'?a.date.replace(/(\d+) (\w+) (\d+)/,(m,d,mo,y)=>mo[0].toUpperCase()+mo.slice(1)+' '+d+', '+y):a.date}</span></div><h4>${a.title}</h4><p>${a.summary}</p><span class="go">${t('Leer en LinkedIn ↗')}</span></div></a>`).join('')}</div>`;
   board.querySelectorAll('.acard img').forEach(img=>img.onerror=()=>{img.outerHTML=`<div class="art art-dark"><div class="dots"></div><span class="eyebrow">Marketing con Datos</span><b>${img.alt.replace('Portada: ','')}</b></div>`});
+  board.querySelectorAll('.acard .cover video').forEach(v=>{const b=v.parentNode.querySelector('.sound');
+    b.onclick=e=>{e.preventDefault();e.stopPropagation();v.muted=!v.muted;b.textContent=t(v.muted?'♪ Sonido':'♪ Silenciar')}});
+  const avio=new IntersectionObserver(es=>es.forEach(en=>{const v=en.target;if(en.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else{v.pause();v.muted=true;const b=v.parentNode.querySelector('.sound');if(b)b.textContent=t('♪ Sonido')}}),{threshold:.5});
+  board.querySelectorAll('.acard .cover video').forEach(v=>avio.observe(v));
   board.querySelectorAll('.acard').forEach((el,i)=>el.animate([{opacity:0,translate:'0 30px'},{opacity:1,translate:'0 0'}],{duration:450,delay:i*60,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'}));
 }
 function drawBrand(board){

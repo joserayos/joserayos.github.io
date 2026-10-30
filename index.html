@@ -601,7 +601,14 @@ const EN={
   'Artista marcial, actor de teatro y repostero':'Martial artist, stage actor and pastry chef','Estrategia y producción de contenido':'Content strategy and production',
   'Artista marcial (Taekwondo y Gumdo), actor de teatro y repostero en Panamá que busca crecer como creador de contenido.':'Martial artist (Taekwondo and Gumdo), stage actor and pastry chef in Panama who wants to grow as a content creator.',
   'Estrategia de marca personal y plan de contenido; grabación, edición y publicación; manejo de redes y comunidad; acercamiento a marcas.':'Personal brand strategy and content plan; filming, editing and publishing; social media and community management; outreach to brands.',
-  'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos, y carrusel de técnica.':'Educational Taekwondo and Gumdo reels with voiceover and subtitles, plus a technique carousel.',
+  'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos.':'Educational Taekwondo and Gumdo reels with voiceover and subtitles.',
+  'Serie Baldos de Gumdo':'Gumdo Baldos series','Una serie de formas de desenvaine con espada de Haidong Gumdo, explicada episodio por episodio.':'A series on Haidong Gumdo sword-drawing forms, explained episode by episode.',
+  'Carruseles':'Carousels','Carruseles educativos con la línea gráfica de la marca: presentación, técnica y vocabulario.':'Educational carousels in the brand’s visual identity: introduction, technique and vocabulary.',
+  'Baldos · Ep. 1 · El desenvaine':'Baldos · Ep. 1 · The draw','Baldos · Ep. 2':'Baldos · Ep. 2','Baldos · Ep. 3':'Baldos · Ep. 3','Baldos · Ep. 4 · Desenvaine directo':'Baldos · Ep. 4 · Direct draw',
+  'Patadas básicas · Ap Chagi':'Basic kicks · Ap Chagi','Quién es Jose Teng':'Who is Jose Teng','Cómo amarrar el cinturón en 6 pasos':'How to tie the belt in 6 steps',
+  'Vocabulario del dojo':'Dojo vocabulary','Vocabulario de las patadas':'Kick vocabulary',
+  'Firmas legales':'Law firms','Antes de llamar a un abogado, tu cliente ya buscó la respuesta: cómo una firma legal en Panamá se hace encontrar':'Before calling a lawyer, your client already searched for the answer: how a law firm in Panama gets found',
+  'Hoy el cliente busca la respuesta en Google antes de llamar a un abogado. Una firma en Panamá se hace encontrar con una página por pregunta, cuatro casos de ejemplo, lo que sí funciona en redes sociales y una prueba de dos minutos que se puede hacer el mismo día.':'Today clients search Google for an answer before calling a lawyer. A law firm in Panama gets found with one page per question, four worked examples, what actually works on social media and a two-minute test you can run the same day.',
   'Identidad visual':'Visual identity','Logo, sellos y fondos de la marca personal.':'Logo, seals and backgrounds for the personal brand.',
   'Próximo proyecto':'Next project','Espacio para nuevos creadores':'Room for new creators','Pronto':'Soon',
   'SEO, GEO y contenido para empresas':'SEO, GEO and content for businesses','Asistente de mercadeo':'Marketing assistant',
@@ -616,7 +623,7 @@ const EN={
   'Hamburguesería artesanal cofundada en Panamá.':'Artisanal burger restaurant co-founded in Panama.',
   'Cofundó la marca y participó desde la elaboración de recetas y platillos hasta la administración. Estuvo a cargo de todo el marketing del negocio.':'He co-founded the brand and took part in everything from developing recipes and dishes to administration. He was in charge of all of the business’s marketing.',
   /* piezas */
-  'Carrusel':'Carousel','Fondo':'Background','Evento':'Event','Flyer animado':'Animated flyer','Foto':'Photo','Portada':'Cover',
+  'Tráiler':'Trailer','Episodio':'Episode','Carrusel':'Carousel','Fondo':'Background','Evento':'Event','Flyer animado':'Animated flyer','Foto':'Photo','Portada':'Cover',
   'Tráiler · Baldos de Gumdo':'Trailer · Gumdo forms','Yop Chagi · la patada lateral':'Yop Chagi · the side kick','Rompiendo una tabla · Yop Chagi':'Breaking a board · Yop Chagi',
   'Patadas · Dollyo Chagi':'Kicks · Dollyo Chagi','Cómo amarrar el cinturón · Gumdo':'How to tie the belt · Gumdo',
   'Logo con tipografía · rojo y azul':'Logo with typography · red and blue','Sello en rojo':'Seal in red','Sello en azul':'Seal in blue','Fondo para TV':'TV background','Textura azul':'Blue texture',
@@ -652,6 +659,10 @@ function applyLang(){
 /* ===== Proyectos: edita aquí textos y piezas ===== */
 /* ===== Artículos de LinkedIn (más reciente primero) ===== */
 const ARTICLES=[
+  {title:'Antes de llamar a un abogado, tu cliente ya buscó la respuesta: cómo una firma legal en Panamá se hace encontrar', date:'30 oct 2026', tag:'Firmas legales',
+   summary:'Hoy el cliente busca la respuesta en Google antes de llamar a un abogado. Una firma en Panamá se hace encontrar con una página por pregunta, cuatro casos de ejemplo, lo que sí funciona en redes sociales y una prueba de dos minutos que se puede hacer el mismo día.',
+   url:'https://www.linkedin.com/pulse/antes-de-llamar-un-abogado-tu-cliente-ya-busc%C3%B3-la-respuesta-rayos-k4gze/',
+   cover:'img/articulos/10-firmas-legales-poster.webp', video:'img/articulos/10-firmas-legales.mp4', ratio:'1/1'},
   {title:'Inteligencia artificial en marketing: qué automatizar y qué no', date:'13 oct 2026', tag:'Automatización',
    summary:'La inteligencia artificial en marketing conviene aplicarla a tareas que se repiten igual, se pueden verificar y cuyo error sale barato. Lo que exige criterio de marca, decisión de inversión o manejo de datos de clientes se asiste con IA, pero no se delega.',
    url:'https://www.linkedin.com/pulse/inteligencia-artificial-en-marketing-qu%C3%A9-automatizar-y-jose-rayos-ywuse',
@@ -710,15 +721,30 @@ const projects = [
       did:'Estrategia de marca personal y plan de contenido; grabación, edición y publicación; manejo de redes y comunidad; acercamiento a marcas.',
       res:null,
       segments:[
-        {name:'Contenido', desc:'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos, y carrusel de técnica.',
+        {name:'Contenido', desc:'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos.',
          pieces:[
-           {type:'video', label:'Reel', title:'Tráiler · Baldos de Gumdo', src:'img/jose-teng/trailer-gumdo.mp4', ratio:'9/16', sound:true},
-           {type:'carousel', label:'Carrusel', title:'Yop Chagi · la patada lateral', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/yop-chagi-${i}.webp`)},
-           {type:'video', label:'Reel', title:'Rompiendo una tabla · Yop Chagi', src:'img/jose-teng/tabla.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Patadas básicas · Ap Chagi', src:'img/jose-teng/ap-chagi.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Patadas · Dollyo Chagi', src:'img/jose-teng/dollyo-chagi.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Rompiendo una tabla · Yop Chagi', src:'img/jose-teng/tabla.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Poomsae 1 · Taegeuk Il Jang', src:'img/jose-teng/poomsae-1.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Poomsae 4 · Taegeuk Sa Jang', src:'img/jose-teng/poomsae-4.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Cómo amarrar el cinturón · Gumdo', src:'img/jose-teng/cinturon-gumdo.mp4', ratio:'9/16', sound:true}
+         ]},
+        {name:'Serie Baldos de Gumdo', desc:'Una serie de formas de desenvaine con espada de Haidong Gumdo, explicada episodio por episodio.',
+         pieces:[
+           {type:'video', label:'Tráiler', title:'Tráiler · Baldos de Gumdo', src:'img/jose-teng/trailer-gumdo.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Episodio', title:'Baldos · Ep. 1 · El desenvaine', src:'img/jose-teng/baldos-ep1.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Episodio', title:'Baldos · Ep. 2', src:'img/jose-teng/baldos-ep2.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Episodio', title:'Baldos · Ep. 3', src:'img/jose-teng/baldos-ep3.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Episodio', title:'Baldos · Ep. 4 · Desenvaine directo', src:'img/jose-teng/baldos-ep4.mp4', ratio:'9/16', sound:true}
+         ]},
+        {name:'Carruseles', desc:'Carruseles educativos con la línea gráfica de la marca: presentación, técnica y vocabulario.',
+         pieces:[
+           {type:'carousel', label:'Carrusel', title:'Quién es Jose Teng', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/quienes-${i}.webp`)},
+           {type:'carousel', label:'Carrusel', title:'Yop Chagi · la patada lateral', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/yop-chagi-${i}.webp`)},
+           {type:'carousel', label:'Carrusel', title:'Cómo amarrar el cinturón en 6 pasos', ratio:'4/5', slides:[1,2,3,4,5,6].map(i=>`img/jose-teng/cinturon-${i}.webp`)},
+           {type:'carousel', label:'Carrusel', title:'Vocabulario del dojo', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/jose-teng/vocabulario-dojo-${i}.webp`)},
+           {type:'carousel', label:'Carrusel', title:'Vocabulario de las patadas', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/jose-teng/vocabulario-patadas-${i}.webp`)}
          ]},
         {name:'Identidad visual', desc:'Logo, sellos y fondos de la marca personal.',
          pieces:[
@@ -927,7 +953,7 @@ let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{const 
 function drawArticles(board){
   board.classList.remove('row');board.parentNode.querySelectorAll('.row-head').forEach(e=>e.remove());board.classList.add('flow');board.style.height='';
   board.innerHTML=`<div class="arts">${ARTICLES.map(a=>`<a class="acard" href="${a.url}" target="_blank" rel="noopener">
-    <div class="cover${a.video&&a.ratio==='9/16'?' v':''}">${a.video?`<video src="${a.video}" poster="${a.cover}" muted loop playsinline preload="none" aria-label="Portada en video: ${a.title}"></video><button class="sound" type="button">${t('♪ Sonido')}</button>`:`<img src="${a.cover}" alt="Portada: ${a.title}" loading="lazy" referrerpolicy="no-referrer">`}</div>
+    <div class="cover${a.video&&(a.ratio==='9/16'||a.ratio==='1/1')?' v':''}">${a.video?`<video src="${a.video}" poster="${a.cover}" muted loop playsinline preload="none" aria-label="Portada en video: ${a.title}"></video><button class="sound" type="button">${t('♪ Sonido')}</button>`:`<img src="${a.cover}" alt="Portada: ${a.title}" loading="lazy" referrerpolicy="no-referrer">`}</div>
     <div class="body"><div class="meta"><span class="tag">${t(a.tag)}</span><span>${LANG==='en'?a.date.replace(/(\d+) (\w+) (\d+)/,(m,d,mo,y)=>mo[0].toUpperCase()+mo.slice(1)+' '+d+', '+y):a.date}</span></div><h4>${a.title}</h4><p>${a.summary}</p><span class="go">${t('Leer en LinkedIn ↗')}</span></div></a>`).join('')}</div>`;
   board.querySelectorAll('.acard img').forEach(img=>img.onerror=()=>{img.outerHTML=`<div class="art art-dark"><div class="dots"></div><span class="eyebrow">Marketing con Datos</span><b>${img.alt.replace('Portada: ','')}</b></div>`});
   board.querySelectorAll('.acard .cover video').forEach(v=>{const b=v.parentNode.querySelector('.sound');

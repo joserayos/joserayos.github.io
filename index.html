@@ -603,6 +603,31 @@ const EN={
   'Estrategia de marca personal y plan de contenido; grabación, edición y publicación; manejo de redes y comunidad; acercamiento a marcas.':'Personal brand strategy and content plan; filming, editing and publishing; social media and community management; outreach to brands.',
   'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos.':'Educational Taekwondo and Gumdo reels with voiceover and subtitles.',
   'Serie Baldos de Gumdo':'Gumdo Baldos series','Una serie de formas de desenvaine con espada de Haidong Gumdo, explicada episodio por episodio.':'A series on Haidong Gumdo sword-drawing forms, explained episode by episode.',
+  "Evolución de las cuentas":"Account growth",
+  "Cómo cambiaron las cuentas desde que arrancó la campaña de contenido, el 12 de octubre de 2026.":"How the accounts changed after the content campaign started on October 12, 2026.",
+  "seguidores netos en Instagram (2.661 → 2.819)":"net new Instagram followers (2,661 → 2,819)",
+  "7,7×":"7.7×",
+  "más vistas en Instagram que en los 35 días previos":"more Instagram views than in the 35 days before",
+  "suscriptores en YouTube":"YouTube subscribers",
+  "Seguidores (8 sep → 17 nov)":"Followers (Sep 8 → Nov 17)",
+  "Vistas, 8 sep–12 oct (35 días)":"Views, Sep 8–Oct 12 (35 days)",
+  "Vistas, 13 oct–17 nov (36 días)":"Views, Oct 13–Nov 17 (36 days)",
+  "Piezas publicadas, antes → después":"Pieces published, before → after",
+  "Seguidores ganados, antes → después":"Followers gained, before → after",
+  "Día de mayor alcance, 14 oct":"Best day, Oct 14",
+  "6.501 vistas":"6,501 views",
+  "2.661 → 2.819":"2,661 → 2,819",
+  "9.305":"9,305",
+  "71.197":"71,197",
+  "Suscriptores (8 sep → 17 nov)":"Subscribers (Sep 8 → Nov 17)",
+  "Vistas en el periodo":"Views in the period",
+  "17.704":"17,704",
+  "13.493":"13,493",
+  "Videos publicados":"Videos published",
+  "Cómo se midió":"How it was measured",
+  "Datos de Metricool de las cuentas de Jose Teng, del 8 de septiembre al 17 de noviembre de 2026.":"Metricool data from Jose Teng’s accounts, September 8 to November 17, 2026.",
+  "La campaña de contenido arrancó el 12 de octubre; se comparan los 35 días previos con los 36 siguientes.":"The content campaign started on October 12; the 35 days before are compared with the 36 days after.",
+  "Las vistas cuentan todas las veces que se mostró el contenido; los seguidores son netos.":"Views count every time the content was displayed; follower figures are net.",
   'Carruseles':'Carousels','Carruseles educativos con la línea gráfica de la marca: presentación, técnica y vocabulario.':'Educational carousels in the brand’s visual identity: introduction, technique and vocabulary.',
   'Baldos · Ep. 1 · El desenvaine':'Baldos · Ep. 1 · The draw','Baldos · Ep. 2':'Baldos · Ep. 2','Baldos · Ep. 3':'Baldos · Ep. 3','Baldos · Ep. 4 · Desenvaine directo':'Baldos · Ep. 4 · Direct draw',
   'Patadas básicas · Ap Chagi':'Basic kicks · Ap Chagi','Quién es Jose Teng':'Who is Jose Teng','Cómo amarrar el cinturón en 6 pasos':'How to tie the belt in 6 steps',
@@ -717,6 +742,7 @@ const projects = [
   {id:'influencers', name:'Proyecto Influencers', what:'Marcas personales de creadores de contenido', yr:'2026', style:'art-or',
    children:[
      {id:'jose-teng', name:'Jose Teng', what:'Artista marcial, actor de teatro y repostero', yr:'2026', style:'art-or', role:'Estrategia y producción de contenido',
+      stats:[['+158','seguidores netos en Instagram (2.661 → 2.819)'],['7,7×','más vistas en Instagram que en los 35 días previos'],['7 → 46','suscriptores en YouTube']],
       context:'Artista marcial (Taekwondo y Gumdo), actor de teatro y repostero en Panamá que busca crecer como creador de contenido.',
       did:'Estrategia de marca personal y plan de contenido; grabación, edición y publicación; manejo de redes y comunidad; acercamiento a marcas.',
       res:null,
@@ -746,6 +772,7 @@ const projects = [
            {type:'carousel', label:'Carrusel', title:'Vocabulario del dojo', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/jose-teng/vocabulario-dojo-${i}.webp`)},
            {type:'carousel', label:'Carrusel', title:'Vocabulario de las patadas', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/jose-teng/vocabulario-patadas-${i}.webp`)}
          ]},
+        {name:'Evolución de las cuentas', type:'results', desc:'Cómo cambiaron las cuentas desde que arrancó la campaña de contenido, el 12 de octubre de 2026.'},
         {name:'Identidad visual', desc:'Logo, sellos y fondos de la marca personal.',
          pieces:[
            {type:'carousel', label:'Logo', title:'Logo con tipografía · rojo y azul', ratio:'1/1', contain:true, slides:['logo-vertical-rojo','logo-vertical-azul','logo-horizontal-rojo','logo-horizontal-azul'].map(n=>`img/jose-teng/${n}.webp`)},
@@ -870,7 +897,7 @@ function openCase(p,parent){
     board.querySelectorAll('.piece').forEach((el,i)=>{makeDraggable(el);el.animate([{opacity:0,translate:'0 40px'},{opacity:1,translate:'0 0'}],{duration:450,delay:i*70,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'})})};
   if(p.segments){
     const pick=i=>{sheet.querySelectorAll('.seg').forEach(b=>b.classList.toggle('on',b.dataset.i==i));const g=p.segments[i];document.getElementById('segDesc').textContent=t(g.desc);
-      g.type==='articles'?drawArticles(board):g.type==='brand'?drawBrand(board):draw(g.pieces)};
+      g.type==='articles'?drawArticles(board):g.type==='brand'?drawBrand(board):g.type==='results'?drawResults(board):draw(g.pieces)};
     sheet.querySelectorAll('.seg').forEach(b=>b.onclick=()=>pick(b.dataset.i)); pick(0);
   } else draw(p.pieces);
   sheet.scrollTop=0;sheet.classList.add('open');document.body.style.overflow='hidden';
@@ -961,6 +988,17 @@ function drawArticles(board){
   const avio=new IntersectionObserver(es=>es.forEach(en=>{const v=en.target;if(en.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else{v.pause();v.muted=true;const b=v.parentNode.querySelector('.sound');if(b)b.textContent=t('♪ Sonido')}}),{threshold:.5});
   board.querySelectorAll('.acard .cover video').forEach(v=>avio.observe(v));
   board.querySelectorAll('.acard').forEach((el,i)=>el.animate([{opacity:0,translate:'0 30px'},{opacity:1,translate:'0 0'}],{duration:450,delay:i*60,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'}));
+}
+function drawResults(board){
+  board.classList.remove('row');board.parentNode.querySelectorAll('.row-head').forEach(e=>e.remove());board.classList.add('flow');board.style.height='';
+  const kv=r=>`<li>${t(r[0])}: <b>${t(r[1])}</b></li>`;
+  const blocks=[
+    ['Instagram',[['Seguidores (8 sep → 17 nov)','2.661 → 2.819'],['Vistas, 8 sep–12 oct (35 días)','9.305'],['Vistas, 13 oct–17 nov (36 días)','71.197'],['Piezas publicadas, antes → después','10 → 70'],['Seguidores ganados, antes → después','36 → 186'],['Día de mayor alcance, 14 oct','6.501 vistas']]],
+    ['YouTube',[['Suscriptores (8 sep → 17 nov)','7 → 46'],['Vistas en el periodo','17.704'],['Videos publicados','18']]],
+    ['TikTok',[['Seguidores (8 sep → 17 nov)','586 → 626'],['Vistas en el periodo','13.493'],['Videos publicados','19']]]
+  ];
+  board.innerHTML=`<div class="brand">${blocks.map(b=>`<div class="box"><h5>${b[0]}</h5><ul class="rules">${b[1].map(kv).join('')}</ul></div>`).join('')}
+    <div class="box"><h5>${t('Cómo se midió')}</h5><ul class="rules"><li>${t('Datos de Metricool de las cuentas de Jose Teng, del 8 de septiembre al 17 de noviembre de 2026.')}</li><li>${t('La campaña de contenido arrancó el 12 de octubre; se comparan los 35 días previos con los 36 siguientes.')}</li><li>${t('Las vistas cuentan todas las veces que se mostró el contenido; los seguidores son netos.')}</li></ul></div></div>`;
 }
 function drawBrand(board){
   board.classList.remove('row');board.parentNode.querySelectorAll('.row-head').forEach(e=>e.remove());board.classList.add('flow');board.style.height='';

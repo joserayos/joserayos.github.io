@@ -630,6 +630,7 @@ const EN={
   "Las vistas cuentan todas las veces que se mostró el contenido; los seguidores son netos.":"Views count every time the content was displayed; follower figures are net.",
   'Carruseles':'Carousels','Carruseles educativos con la línea gráfica de la marca: presentación, técnica y vocabulario.':'Educational carousels in the brand’s visual identity: introduction, technique and vocabulary.',
   'Baldos · Ep. 1 · El desenvaine':'Baldos · Ep. 1 · The draw','Baldos · Ep. 2':'Baldos · Ep. 2','Baldos · Ep. 3':'Baldos · Ep. 3','Baldos · Ep. 4 · Desenvaine directo':'Baldos · Ep. 4 · Direct draw',
+  'Mi historia · Capítulo 2':'My story · Chapter 2','Mi historia · Capítulo 1':'My story · Chapter 1','Reel madre · Ssang Soo 8':'Mother reel · Ssang Soo 8','Tip rápido de Gumdo #2 · Ssang Soo 2':'Quick Gumdo tip #2 · Ssang Soo 2','Cómo amarrar el cinturón · Taekwondo':'How to tie the belt · Taekwondo','De la madera al filo · los 3 tipos de espada':'From wood to edge · the 3 types of sword','Los 8 Taegeuk y su elemento':'The 8 Taegeuk and their element',
   'Patadas básicas · Ap Chagi':'Basic kicks · Ap Chagi','Quién es Jose Teng':'Who is Jose Teng','Cómo amarrar el cinturón en 6 pasos':'How to tie the belt in 6 steps',
   'Vocabulario del dojo':'Dojo vocabulary','Vocabulario de las patadas':'Kick vocabulary',
   'Firmas legales':'Law firms','Antes de llamar a un abogado, tu cliente ya buscó la respuesta: cómo una firma legal en Panamá se hace encontrar':'Before calling a lawyer, your client already searched for the answer: how a law firm in Panama gets found',
@@ -749,6 +750,11 @@ const projects = [
       segments:[
         {name:'Contenido', desc:'Reels educativos de Taekwondo y Gumdo, con voz y subtítulos.',
          pieces:[
+           {type:'video', label:'Reel', title:'Mi historia · Capítulo 2', src:'img/jose-teng/historia-cap2.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Mi historia · Capítulo 1', src:'img/jose-teng/historia-cap1.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Reel madre · Ssang Soo 8', src:'img/jose-teng/ssang-soo-8.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Tip rápido de Gumdo #2 · Ssang Soo 2', src:'img/jose-teng/tip-gumdo-2.mp4', ratio:'9/16', sound:true},
+           {type:'video', label:'Reel', title:'Cómo amarrar el cinturón · Taekwondo', src:'img/jose-teng/cinturon-taekwondo.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Patadas básicas · Ap Chagi', src:'img/jose-teng/ap-chagi.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Patadas · Dollyo Chagi', src:'img/jose-teng/dollyo-chagi.mp4', ratio:'9/16', sound:true},
            {type:'video', label:'Reel', title:'Rompiendo una tabla · Yop Chagi', src:'img/jose-teng/tabla.mp4', ratio:'9/16', sound:true},
@@ -766,6 +772,8 @@ const projects = [
          ]},
         {name:'Carruseles', desc:'Carruseles educativos con la línea gráfica de la marca: presentación, técnica y vocabulario.',
          pieces:[
+           {type:'carousel', label:'Carrusel', title:'De la madera al filo · los 3 tipos de espada', ratio:'4/5', slides:[1,2,3,4,5,6,7].map(i=>`img/jose-teng/espadas-${i}.webp`)},
+           {type:'carousel', label:'Carrusel', title:'Los 8 Taegeuk y su elemento', ratio:'4/5', slides:[1,2,3,4,5,6].map(i=>`img/jose-teng/taegeuk-elementos-${i}.webp`)},
            {type:'carousel', label:'Carrusel', title:'Quién es Jose Teng', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/quienes-${i}.webp`)},
            {type:'carousel', label:'Carrusel', title:'Yop Chagi · la patada lateral', ratio:'4/5', slides:[1,2,3,4,5].map(i=>`img/jose-teng/yop-chagi-${i}.webp`)},
            {type:'carousel', label:'Carrusel', title:'Cómo amarrar el cinturón en 6 pasos', ratio:'4/5', slides:[1,2,3,4,5,6].map(i=>`img/jose-teng/cinturon-${i}.webp`)},
